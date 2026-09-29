@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Rumi ✨</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #05050b;
+      color: white;
+    }
+
+    /* Cinematic background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 45%, #35204f 0%, transparent 28%),
+        radial-gradient(circle at 20% 20%, #172b50 0%, transparent 25%),
+        linear-gradient(135deg, #03030a, #090714, #020208);
+    }
+
+    /* Glow */
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: #b56cff;
+      filter: blur(150px);
+      opacity: .12;
+      border-radius: 50%;
+      animation: breathe 5s infinite alternate;
+    }
+
+    @keyframes breathe {
+      from { transform: scale(.8); opacity: .08; }
+      to { transform: scale(1.2); opacity: .16; }
+    }
+
+    /* Stars */
+    .stars,
+    .stars::before,
+    .stars::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background-image:
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, #d7b5ff 1px, transparent 1.5px);
+      background-size: 90px 90px, 140px 140px;
+      background-position: 10px 20px, 60px 70px;
+      opacity: .35;
+      animation: starsMove 18s linear infinite;
+    }
+
+    .stars::before {
+      transform: scale(1.5);
+      opacity: .12;
+      animation-duration: 30s;
+    }
+
+    .stars::after {
+      transform: scale(2);
+      opacity: .08;
+      animation-duration: 45s;
+    }
+
+    @keyframes starsMove {
+      from { transform: translateY(0); }
+      to { transform: translateY(-100px); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 5;
+      padding: 30px;
+      max-width: 900px;
+    }
+
+    .small {
+      text-transform: uppercase;
+      letter-spacing: 7px;
+      font-size: 13px;
+      color: #d8c3ff;
+      opacity: 0;
+      animation: fadeUp 1.2s .3s forwards;
+    }
+
+    h1 {
+      margin: 25px 0 10px;
+      font-size: clamp(60px, 12vw, 150px);
+      line-height: .9;
+      font-weight: 400;
+      letter-spacing: -5px;
+      background: linear-gradient(
+        90deg,
+        #fff,
+        #e4caff,
+        #fff,
+        #c89aff
+      );
+      background-size: 300%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation:
+        fadeUp 1.4s .5s forwards,
+        shine 6s linear infinite;
+      opacity: 0;
+      text-shadow: 0 0 50px rgba(194, 130, 255, .25);
+    }
+
+    @keyframes shine {
+      to { background-position: 300%; }
+    }
+
+    .message {
+      max-width: 620px;
+      margin: 25px auto;
+      font-size: clamp(17px, 2.5vw, 22px);
+      line-height: 1.7;
+      color: #ddd6e9;
+      opacity: 0;
+      animation: fadeUp 1.2s 1s forwards;
+    }
+
+    .from {
+      margin-top: 35px;
+      font-size: 15px;
+      letter-spacing: 4px;
+      color: #cda9ff;
+      opacity: 0;
+      animation: fadeUp 1.2s 1.4s forwards;
+    }
+
+    .from span {
+      color: white;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Button */
+    .btn {
+      margin-top: 35px;
+      padding: 14px 30px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50px;
+      color: white;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      font-size: 15px;
+      transition: .4s;
+      opacity: 0;
+      animation: fadeUp 1.2s 1.8s forwards;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: rgba(190,130,255,.2);
+      box-shadow: 0 0 35px rgba(190,130,255,.3);
+    }
+
+    /* Scroll hint */
+    .scroll {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: .3; }
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(10px);
+    }
+
+    .card {
+      width: min(500px, 100%);
+      padding: 45px 30px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 25px;
+      background: linear-gradient(
+        145deg,
+        rgba(45,30,65,.95),
+        rgba(10,8,20,.97)
+      );
+      box-shadow: 0 0 80px rgba(160,90,255,.2);
+      animation: pop .5s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .card h2 {
+      font-size: 38px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      line-height: 1.8;
+      color: #ddd;
+      font-size: 17px;
+    }
+
+    .close {
+      margin-top: 25px;
+      padding: 10px 25px;
+      border: 1px solid #9f70c9;
+      background: transparent;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 18px;
+      pointer-events: none;
+      animation: floatUp 5s linear forwards;
+      z-index: 10;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media(max-width:600px) {
+      .small {
+        letter-spacing: 4px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="hero">
+
+    <div class="stars"></div>
+    <div class="glow"></div>
+
+    <section class="content">
+
+      <div class="small">A little celebration for</div>
+
+      <h1>Rumi</h1>
+
+      <p class="message">
+        Today isn't just another day...
+        it's the day someone truly special came into this world.
+        <br><br>
+        May your life be filled with beautiful moments,
+        unforgettable memories, endless smiles,
+        and dreams that slowly turn into reality. ✨
+      </p>
+
+      <div class="from">
+        WITH LOVE &nbsp; FROM
+        <br>
+        <span>Shadow</span>
+      </div>
+
+      <button class="btn" onclick="openMessage()">
+        ✨ Open Your Surprise
+      </button>
+
+    </section>
+
+    <div class="scroll">SCROLL • DREAM • CELEBRATE</div>
+
+  </main>
+
+  <!-- Surprise -->
+  <div class="popup" id="popup">
+
+    <div class="card">
+
+      <h2>Happy Birthday, Rumi 🎂</h2>
+
+      <p>
+        Some people make ordinary moments feel special.
+        <br>
+        You're one of those people.
+        <br><br>
+        Keep smiling, keep dreaming,
+        and never stop being yourself.
+        <br><br>
+        Here's to another beautiful chapter. 🥂✨
+      </p>
+
+      <button class="close" onclick="closeMessage()">
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openMessage() {
+      document.getElementById("popup").style.display = "flex";
+      createHearts();
+    }
+
+    function closeMessage() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("div");
+
+          heart.className = "heart";
+          heart.innerHTML =
+            ["♡", "♥", "✦", "✨"][Math.floor(Math.random() * 4)];
+
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize =
+            (12 + Math.random() * 20) + "px";
+
+          heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 6000);
+        }, i * 100);
+      }
+    }
+  </script>
+
+</body>
+  </html>
