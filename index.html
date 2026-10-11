@@ -1,402 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Rumi ✨</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuchu Puchu ♡</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #05050b;
-      color: white;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    /* Cinematic background */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 45%, #35204f 0%, transparent 28%),
-        radial-gradient(circle at 20% 20%, #172b50 0%, transparent 25%),
-        linear-gradient(135deg, #03030a, #090714, #020208);
-    }
+body {
+    background: #090817;
+    color: #fff0fa;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
 
-    /* Glow */
-    .glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: #b56cff;
-      filter: blur(150px);
-      opacity: .12;
-      border-radius: 50%;
-      animation: breathe 5s infinite alternate;
-    }
+nav {
+    padding: 18px;
+    background: #100b20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #ff69b4;
+}
 
-    @keyframes breathe {
-      from { transform: scale(.8); opacity: .08; }
-      to { transform: scale(1.2); opacity: .16; }
-    }
+.logo {
+    font-size: 25px;
+    color: #ff83c4;
+    font-weight: bold;
+}
 
-    /* Stars */
-    .stars,
-    .stars::before,
-    .stars::after {
-      position: absolute;
-      inset: 0;
-      content: "";
-      background-image:
-        radial-gradient(circle, white 1px, transparent 1.5px),
-        radial-gradient(circle, #d7b5ff 1px, transparent 1.5px);
-      background-size: 90px 90px, 140px 140px;
-      background-position: 10px 20px, 60px 70px;
-      opacity: .35;
-      animation: starsMove 18s linear infinite;
-    }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 13px;
+}
 
-    .stars::before {
-      transform: scale(1.5);
-      opacity: .12;
-      animation-duration: 30s;
-    }
+.hero {
+    min-height: 85vh;
+    padding: 50px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    background:
+        radial-gradient(circle at top right, #632d65, transparent 50%),
+        linear-gradient(135deg, #090817, #21102e);
+}
 
-    .stars::after {
-      transform: scale(2);
-      opacity: .08;
-      animation-duration: 45s;
-    }
+.hero-text {
+    max-width: 500px;
+}
 
-    @keyframes starsMove {
-      from { transform: translateY(0); }
-      to { transform: translateY(-100px); }
-    }
+.hero h1 {
+    font-size: clamp(45px, 9vw, 75px);
+    color: #ff9bd2;
+    margin: 20px 0;
+    text-shadow: 0 0 25px #ff4ca5;
+}
 
-    .content {
-      position: relative;
-      z-index: 5;
-      padding: 30px;
-      max-width: 900px;
-    }
+p {
+    line-height: 1.8;
+}
 
-    .small {
-      text-transform: uppercase;
-      letter-spacing: 7px;
-      font-size: 13px;
-      color: #d8c3ff;
-      opacity: 0;
-      animation: fadeUp 1.2s .3s forwards;
-    }
+.hero p {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+}
 
-    h1 {
-      margin: 25px 0 10px;
-      font-size: clamp(60px, 12vw, 150px);
-      line-height: .9;
-      font-weight: 400;
-      letter-spacing: -5px;
-      background: linear-gradient(
-        90deg,
-        #fff,
-        #e4caff,
-        #fff,
-        #c89aff
-      );
-      background-size: 300%;
-      -webkit-background-clip: text;
-      color: transparent;
-      animation:
-        fadeUp 1.4s .5s forwards,
-        shine 6s linear infinite;
-      opacity: 0;
-      text-shadow: 0 0 50px rgba(194, 130, 255, .25);
-    }
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 25px;
+    margin-top: 20px;
+    color: white;
+    background: linear-gradient(135deg, #ff82bd, #ed278b);
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4ca555;
+}
 
-    @keyframes shine {
-      to { background-position: 300%; }
-    }
+button:hover {
+    transform: scale(1.05);
+}
 
-    .message {
-      max-width: 620px;
-      margin: 25px auto;
-      font-size: clamp(17px, 2.5vw, 22px);
-      line-height: 1.7;
-      color: #ddd6e9;
-      opacity: 0;
-      animation: fadeUp 1.2s 1s forwards;
-    }
+.bear {
+    font-size: clamp(120px, 25vw, 210px);
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px #ff5da544);
+}
 
-    .from {
-      margin-top: 35px;
-      font-size: 15px;
-      letter-spacing: 4px;
-      color: #cda9ff;
-      opacity: 0;
-      animation: fadeUp 1.2s 1.4s forwards;
-    }
+section {
+    padding: 55px 7%;
+    border-top: 1px solid #ff83c433;
+}
 
-    .from span {
-      color: white;
-      font-size: 24px;
-      letter-spacing: 1px;
-    }
+.title {
+    text-align: center;
+    color: #ffabd7;
+    font-size: clamp(30px, 6vw, 45px);
+    margin-bottom: 20px;
+}
 
-    @keyframes fadeUp {
-      from {
+.subtitle {
+    text-align: center;
+    margin: 0 auto 30px;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: #151126;
+    border: 1px solid #ff79bf88;
+    border-radius: 22px;
+    box-shadow: 0 0 30px #ff4ca511;
+}
+
+.card h2 {
+    color: #ffabd7;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.treats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.treat {
+    background: #171329;
+    border: 1px solid #ff79bf66;
+    border-radius: 22px;
+    padding: 25px;
+    text-align: center;
+}
+
+.emoji {
+    display: block;
+    font-size: 80px;
+    animation: float 3s infinite;
+    margin-bottom: 15px;
+}
+
+.treat h3 {
+    color: #ffabd7;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.treat p {
+    font-family: Arial, sans-serif;
+}
+
+.remember p {
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+.remember span {
+    color: #ff83c4;
+}
+
+.surprise {
+    text-align: center;
+    background: radial-gradient(circle, #462054, #090817 70%);
+}
+
+.gift {
+    font-size: 130px;
+    display: block;
+    animation: float 2s infinite;
+}
+
+#surpriseMessage {
+    display: none;
+    margin: 25px auto;
+    max-width: 600px;
+    padding: 25px;
+    border: 1px solid #ff83c4;
+    border-radius: 20px;
+    background: #151126;
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #ffabd7;
+}
+
+.heart {
+    position: fixed;
+    top: -30px;
+    z-index: 999;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
         opacity: 0;
-        transform: translateY(35px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    }
+}
+
+@media(max-width: 650px) {
+    nav {
+        justify-content: center;
     }
 
-    /* Button */
-    .btn {
-      margin-top: 35px;
-      padding: 14px 30px;
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 50px;
-      color: white;
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      font-size: 15px;
-      transition: .4s;
-      opacity: 0;
-      animation: fadeUp 1.2s 1.8s forwards;
+    .hero {
+        text-align: center;
     }
 
-    .btn:hover {
-      transform: translateY(-4px);
-      background: rgba(190,130,255,.2);
-      box-shadow: 0 0 35px rgba(190,130,255,.3);
-    }
-
-    /* Scroll hint */
-    .scroll {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #aaa;
-      font-size: 11px;
-      letter-spacing: 4px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      50% { opacity: .3; }
-    }
-
-    /* Popup */
-    .popup {
-      position: fixed;
-      inset: 0;
-      z-index: 20;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-      background: rgba(0,0,0,.75);
-      backdrop-filter: blur(10px);
+    .treats {
+        grid-template-columns: 1fr;
     }
 
     .card {
-      width: min(500px, 100%);
-      padding: 45px 30px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 25px;
-      background: linear-gradient(
-        145deg,
-        rgba(45,30,65,.95),
-        rgba(10,8,20,.97)
-      );
-      box-shadow: 0 0 80px rgba(160,90,255,.2);
-      animation: pop .5s ease;
+        padding: 22px;
     }
-
-    @keyframes pop {
-      from {
-        transform: scale(.7);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .card h2 {
-      font-size: 38px;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-
-    .card p {
-      line-height: 1.8;
-      color: #ddd;
-      font-size: 17px;
-    }
-
-    .close {
-      margin-top: 25px;
-      padding: 10px 25px;
-      border: 1px solid #9f70c9;
-      background: transparent;
-      color: white;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 18px;
-      pointer-events: none;
-      animation: floatUp 5s linear forwards;
-      z-index: 10;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    @media(max-width:600px) {
-      .small {
-        letter-spacing: 4px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      .message {
-        font-size: 16px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <main class="hero">
+<nav>
+    <div class="logo">Kuchu Puchu ♡</div>
 
-    <div class="stars"></div>
-    <div class="glow"></div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#message">Special Msg</a>
+        <a href="#treats">Treats</a>
+        <a href="#surprise">Surprise</a>
+    </div>
+</nav>
 
-    <section class="content">
+<header class="hero" id="home">
 
-      <div class="small">A little celebration for</div>
+    <div class="hero-text">
+        <p>💗 A LITTLE SURPRISE FOR YOU 💗</p>
 
-      <h1>Rumi</h1>
+        <h1>Kuchu<br>Puchu ♡</h1>
 
-      <p class="message">
-        Today isn't just another day...
-        it's the day someone truly special came into this world.
-        <br><br>
-        May your life be filled with beautiful moments,
-        unforgettable memories, endless smiles,
-        and dreams that slowly turn into reality. ✨
-      </p>
+        <p>
+            Mera chhota sa effort, sirf tumhare liye...<br>
+            Kyunki tumhari smile hi meri khushi hai. 🥰
+        </p>
 
-      <div class="from">
-        WITH LOVE &nbsp; FROM
-        <br>
-        <span>Shadow</span>
-      </div>
+        <button onclick="showHearts(); document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+            Click to Enter 💗
+        </button>
+    </div>
 
-      <button class="btn" onclick="openMessage()">
-        ✨ Open Your Surprise
-      </button>
+    <div class="bear">🧸💗</div>
 
-    </section>
+</header>
 
-    <div class="scroll">SCROLL • DREAM • CELEBRATE</div>
-
-  </main>
-
-  <!-- Surprise -->
-  <div class="popup" id="popup">
+<section id="message">
 
     <div class="card">
+        <h2>💌 Anees ki taraf se Special Msg</h2>
 
-      <h2>Happy Birthday, Rumi 🎂</h2>
+        <p>
+            Mujhe pta hai AP ka mood kabhi kabhi off ho jata hai.
+            AP meri care karti ho, fikr karti ho, but batati nahi ho,
+            shayad drti ho AP. ❤️
+            <br><br>
+            But don't worry, main hamesha AP ke saath hoon.
+            Jab bhi dil udaas ho, apna time lena.
+            Tumhari feelings important hain aur tumhari khushi bhi.
+            🧸💗
+            <br><br>
+            <b>Always be happy, my dear Kuchu Puchu! ❤️</b>
+        </p>
+    </div>
 
-      <p>
-        Some people make ordinary moments feel special.
-        <br>
-        You're one of those people.
-        <br><br>
-        Keep smiling, keep dreaming,
-        and never stop being yourself.
-        <br><br>
-        Here's to another beautiful chapter. 🥂✨
-      </p>
+</section>
 
-      <button class="close" onclick="closeMessage()">
-        Close
-      </button>
+<section id="treats">
+
+    <h2 class="title">🍫 Chocolate & Ice Cream 🍦</h2>
+
+    <p class="subtitle">
+        Thora sa meetha, thora sa thanda, sirf tumhare liye! 💕
+    </p>
+
+    <div class="treats">
+
+        <div class="treat">
+            <span class="emoji">🍫</span>
+            <h3>Chocolate Time</h3>
+
+            <p>
+                Mood off ho ya din boring,
+                chocolate wali khushi tumhare naam! ❤️
+            </p>
+
+            <button onclick="treat('Chocolate 🍫')">
+                Send Chocolate 💝
+            </button>
+        </div>
+
+        <div class="treat">
+            <span class="emoji">🍦</span>
+            <h3>Ice Cream Time</h3>
+
+            <p>
+                Sweet moments aur cute si smile,
+                meri Kuchu Puchu ke liye! 🍓
+            </p>
+
+            <button onclick="treat('Ice Cream 🍦')">
+                Send Ice Cream 💗
+            </button>
+        </div>
 
     </div>
 
-  </div>
+</section>
 
-  <script>
-    function openMessage() {
-      document.getElementById("popup").style.display = "flex";
-      createHearts();
+<section>
+
+    <h2 class="title">Always Remember 💖</h2>
+
+    <div class="card remember">
+        <p><span>♥</span> Tum bohat special ho.</p>
+        <p><span>♥</span> Tum apni tarah bohat pyari ho.</p>
+        <p><span>♥</span> Tumhari khushi important hai.</p>
+        <p><span>♥</span> Jab waqt chahiye ho, aaram se waqt lena.</p>
+        <p><span>♥</span> Apna khayal rakhna, meri Kuchu Puchu. 🧸</p>
+    </div>
+
+</section>
+
+<section class="surprise" id="surprise">
+
+    <h2 class="title">🎁 Last Surprise 🎁</h2>
+
+    <p class="subtitle">
+        Kuchu Puchu, tumhare liye ek chhota sa surprise! 🥹
+    </p>
+
+    <span class="gift" id="gift">🎁</span>
+
+    <button onclick="openGift()">
+        Open Surprise 💗
+    </button>
+
+    <div id="surpriseMessage">
+        <h2>My Dear Kuchu Puchu 💖</h2>
+
+        <p>
+            Tumhari smile bohat precious hai. 🥰
+            Hamesha khush rehna aur apna khayal rakhna.
+            <br><br>
+            Yeh chhoti si website sirf tumhein yaad dilane ke liye hai
+            ke tum important ho.
+            <br><br>
+            Chocolate 🍫 + Ice Cream 🍦 + Teddy 🧸
+            <br><br>
+            <b>With lots of care — Anees ❤️</b>
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    💗 Made with lots of care for my Kuchu Puchu 💗
+    <br><br>
+    — Anees ♡
+</footer>
+
+<script>
+function showHearts() {
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => createHeart(), i * 100);
     }
+}
 
-    function closeMessage() {
-      document.getElementById("popup").style.display = "none";
+function createHeart() {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent = ["💗", "💕", "✨", "💖"][
+        Math.floor(Math.random() * 4)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+}
+
+function treat(item) {
+    alert(item + " sent specially for Kuchu Puchu! 💗");
+    showHearts();
+}
+
+function openGift() {
+    document.getElementById("gift").textContent = "💝";
+
+    const message = document.getElementById("surpriseMessage");
+    message.style.display = "block";
+
+    showHearts();
+
+    message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+setInterval(() => {
+    if (Math.random() > 0.5) {
+        createHeart();
     }
-
-    function createHearts() {
-      for (let i = 0; i < 25; i++) {
-        setTimeout(() => {
-          const heart = document.createElement("div");
-
-          heart.className = "heart";
-          heart.innerHTML =
-            ["♡", "♥", "✦", "✨"][Math.floor(Math.random() * 4)];
-
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.fontSize =
-            (12 + Math.random() * 20) + "px";
-
-          heart.style.animationDuration =
-            (3 + Math.random() * 3) + "s";
-
-          document.body.appendChild(heart);
-
-          setTimeout(() => heart.remove(), 6000);
-        }, i * 100);
-      }
-    }
-  </script>
+}, 1800);
+</script>
 
 </body>
-  </html>
+</html>
